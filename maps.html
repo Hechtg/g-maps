@@ -1,0 +1,51 @@
+<!-- Google maps api: key="AIzaSyAJpKHvZqDFWpdAbK5ViY8u7D2ISXKsqYs"-->
+<!DOCTYPE html>
+<html>
+    <head>
+          <title>Google Maps API - By Guy Hecht</title>
+          <link rel="stylesheet" type="text/css" href="maps.css">
+          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJpKHvZqDFWpdAbK5ViY8u7D2ISXKsqYs&libraries=drawing,places"></script>
+          <script type="text/javascript" src="maps.js"></script>
+    </head>
+
+  <body class = "center" onload="initialize()">
+    <div class="center" id="floating-panel">
+      <input onclick="clearMarkers();" type=button value="Hide Markers">
+      <input onclick="showMarkers();" type=button value="Show All Markers">
+      <input onclick="deleteMarkers();" type=button value="Delete Markers">
+    </div>
+    <div id="map"></div>
+    <div>
+      <h3>Find Places</h3>
+      <div>
+        <input id="address" type="textbox" placeholder="Enter a new location">
+        <input type="button" value="Go To" onclick="goTo()">
+      </div>
+      <h3>Add Markers</h3>
+      <div>
+        <input id="add-markers" type="textbox" placeholder="Enter locations (e.g: Acre; Jaffa; ... ; Haifa)">
+        <input type="button" value="Add Markers" onclick="addMarkers()">
+      </div>
+    </div>
+    <div>
+      <h3>Get Directions</h3>
+      <strong>Start: </strong>
+      <div>
+        <input id="start" type="text" size="50" placeholder="Enter locations (e.g: Acre; Jaffa; ... ; Haifa)">
+      </div>
+      <strong>End: </strong>
+      <div>
+        <input id="end" type="text" size="50" placeholder="Enter locations (e.g: Acre; Jaffa; ... ; Haifa)">
+      </div>
+      <div>
+        <select id="travelMode" onchange="calcRoute()">
+          <option value="NONE">--Choose Transportation Method</option>
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+        </select>
+      </div>
+      <!--<input type="button" value="Get Directions" onclick="calcRoute()">-->
+    </div>
+
+  </body>
+</html>
